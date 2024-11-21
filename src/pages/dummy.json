@@ -18,7 +18,7 @@
 
   {
     "eid": "d9d995a2-9d56-4df9-ac03-865c30d2cd21",
-    "EventName": "イベント_0002",
+    "eventName": "イベント_0002",
     "discription": "テスト",
     "isOfficial": true,
     "deadline": "2024/01/01",
@@ -35,7 +35,7 @@
 
   {
     "eid": "746e0cce-13bc-4d21-b7ae-ed1160596339",
-    "EventName": "イベント_0003",
+    "eventName": "イベント_0003",
     "discription": "テスト",
     "isOfficial": true,
     "deadline": "2024/01/01",
@@ -52,7 +52,7 @@
 
   {
     "eid": "47377ee8-7f72-4650-af58-19138c528918",
-    "EventName": "イベント_0004",
+    "eventName": "イベント_0004",
     "discription": "テスト",
     "isOfficial": true,
     "deadline": "2024/01/01",
@@ -69,7 +69,7 @@
 
   {
     "eid": "e5281510-bc65-49f7-9093-e8188a7bb068",
-    "EventName": "イベント_0005",
+    "eventName": "イベント_0005",
     "discription": "テスト",
     "isOfficial": true,
     "deadline": "2024/01/01",
