@@ -1,15 +1,56 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { flexCol } from "./edit.css";
+import React, { ReactNode, useState } from "react";
 
 export const Edit = () => {
-  const navigate = useNavigate()
-  const {eventId} = useParams()
+  const [view, setView] = useState<ReactNode | undefined>();
+
+  return (
+    <div>
+      {view ? view :<PasswordComponent setView={setView}/>}
+    </div>
+  ) 
+};
+
+const PasswordComponent: React.FC<{
+  setView: React.Dispatch<React.SetStateAction<React.ReactNode>>;
+}> = ({ setView }) => {
+
+  const [passValue, setPassValue] = useState<string>("")
+  const PASSWORD = "password"
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setPassValue(e.target.value)
+  }
+
+  const onPasswordCheck = (e: any) => {
+    e.preventDefault()
+    if (passValue === PASSWORD) {
+      setView(<FormComponent></FormComponent>)
+    } else {
+      alert("パスワードが違います")
+    }
+  };
+
+  return (
+    <div>
+      <form onSubmit={onPasswordCheck}>
+        <input type="password" value={passValue} onChange={handleChange} />
+        <button type="submit">確認</button>
+      </form>
+    </div>
+  );
+};
+
+const FormComponent = () => {
+  const navigate = useNavigate();
+  const { eventId } = useParams();
 
   const onSubmit = (data: any) => {
     navigate(`/event/${eventId}/info`);
-}
+  };
   return (
-    <div>
+    <div className="">
       <h1>Editページ</h1>
 
       <form className={flexCol} onSubmit={onSubmit}>
@@ -79,7 +120,7 @@ export const Edit = () => {
 
         <div className={flexCol}>
           <label htmlFor="memo">メモ</label>
-          <textarea id="memo" ></textarea>
+          <textarea id="memo"></textarea>
         </div>
 
         <div className={flexCol}>
@@ -89,7 +130,6 @@ export const Edit = () => {
 
         <button type="submit">登録</button>
       </form>
-
     </div>
   );
 };
